@@ -1,12 +1,50 @@
-// tablet
-@media only screen and (min-width:320px){
 
-}
 // laptop
 @media only screen and (min-width:800px){
+    main .cta h1 {
+        font-size: 50px !important;
+    }
+    main .landing {
+        width: 50% !important;
+        transform: translateX(30%) !important;
+    }
+    main .input-form {
+        background-image: url(../../public/images/bg-shorten-desktop.svg) !important;
+        background-size: cover !important;
+    }
+    main .input-form button{
+        width: 20% !important;
+    }
+    main .brand {
+        height: 300px;
+      }
+
+    footer .boost{
+        background-image: url(../../public/images/bg-boost-desktop.svg) !important;
+        background-size: cover;
+    }
+
+    footer .shortly {
+        grid-template-columns: 1fr 1fr 1fr ;
+    }
 
 }
 // desktop
 @media only screen and (min-width:1024px){
+    .line{
+        rotate: 180deg !important;
+        width: 30px !important;
+     }
+    main .cta h1 {
+        font-size: 60px !important;
+    }
+}
 
+@media only screen and (min-width:1500px){
+    main .cta h1 {
+        font-size: 100px !important;
+    }
+    main .cta p {
+        font-size: 30px !important;
+    }
 }
