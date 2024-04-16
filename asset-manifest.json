@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/url-shortening/static/css/main.29bad473.css",
+    "main.js": "/url-shortening/static/js/main.132a994a.js",
+    "static/media/remixicon.svg?t=1708865856766": "/url-shortening/static/media/remixicon.7735fab8dbf8ff78afe9.svg",
+    "static/media/remixicon.eot?t=1708865856766": "/url-shortening/static/media/remixicon.8542c1bb279bcd77063a.eot",
+    "static/media/remixicon.ttf?t=1708865856766": "/url-shortening/static/media/remixicon.4c942de19d980993f612.ttf",
+    "static/media/remixicon.woff?t=1708865856766": "/url-shortening/static/media/remixicon.28ceff39ee3e17dc99db.woff",
+    "static/media/remixicon.woff2?t=1708865856766": "/url-shortening/static/media/remixicon.39f4def56d0e8712909a.woff2",
+    "static/media/bg-boost-desktop.svg": "/url-shortening/static/media/bg-boost-desktop.772154c9b0e451733f5e.svg",
+    "static/media/bg-boost-mobile.svg": "/url-shortening/static/media/bg-boost-mobile.4b04bd89ea775da3deff.svg",
+    "index.html": "/url-shortening/index.html",
+    "static/media/bg-shorten-desktop.svg": "/url-shortening/static/media/bg-shorten-desktop.0d9742f433f4b0d8752b.svg",
+    "static/media/bg-shorten-mobile.svg": "/url-shortening/static/media/bg-shorten-mobile.41c34b33a14a3077e506.svg",
+    "main.29bad473.css.map": "/url-shortening/static/css/main.29bad473.css.map",
+    "main.132a994a.js.map": "/url-shortening/static/js/main.132a994a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29bad473.css",
+    "static/js/main.132a994a.js"
+  ]
+}
