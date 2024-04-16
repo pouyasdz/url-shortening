@@ -19,6 +19,18 @@
         height: 300px;
       }
 
+    main .urls > * {
+        flex-direction: row !important;
+        align-items: center !important;
+        height: max-content !important;
+    }
+    main .urls button {
+        margin-left: 1rem !important;
+    }
+    main .urls .text-primary{
+        margin-left: auto !important;
+    }
+
     footer .boost{
         background-image: url(../../public/images/bg-boost-desktop.svg) !important;
         background-size: cover;

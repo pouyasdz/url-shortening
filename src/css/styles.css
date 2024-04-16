@@ -7,6 +7,8 @@ button, input {
 
 ul {
   list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 @media only screen and (min-width: 800px) {
@@ -26,6 +28,17 @@ ul {
   }
   main .brand {
     height: 300px;
+  }
+  main .urls > * {
+    flex-direction: row !important;
+    align-items: center !important;
+    height: max-content !important;
+  }
+  main .urls button {
+    margin-left: 1rem !important;
+  }
+  main .urls .text-primary {
+    margin-left: auto !important;
   }
   footer .boost {
     background-image: url(../../public/images/bg-boost-desktop.svg) !important;
@@ -11926,10 +11939,33 @@ a {
   align-items: center;
   padding: 10px 2rem;
   letter-spacing: 1px;
+  transition: background-color 0.5s;
+}
+
+.btn-primary:hover {
+  background-color: hsl(189, 100%, 65%);
+}
+
+.btn-primary-active {
+  background-color: hsl(257, 27%, 26%);
 }
 
 .btn-rounded {
   border-radius: 25px;
+}
+
+.text-primary {
+  color: hsl(180, 66%, 49%) !important;
+}
+
+.text-error {
+  color: hsl(0, 87%, 67%);
+  font-size: 12px;
+  bottom: -15px;
+}
+
+.input-error {
+  border: 3px solid hsl(0, 87%, 67%) !important;
 }
 
 main {
@@ -12034,6 +12070,28 @@ main .brand > * .bg {
   top: -30px;
 }
 
+main .urls > * {
+  margin-top: 1rem;
+  width: 100%;
+  height: 160px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+main .urls > * :first-child {
+  color: black;
+}
+
+main .urls > * button {
+  margin-top: auto;
+  height: 40px;
+  transition: background-color 0.5s;
+}
+
 main .line {
   width: 150px;
   height: 10px;
@@ -12064,6 +12122,32 @@ footer .boost {
 
 footer .shortly a {
   color: hsl(257, 7%, 63%);
+}
+
+.mobile-menu {
+  width: 90%;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background-color: hsl(257, 27%, 26%);
+  z-index: 100;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  padding: 2rem 1rem;
+}
+
+.around {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  z-index: 900;
 }
 
 /*# sourceMappingURL=styles.css.map */

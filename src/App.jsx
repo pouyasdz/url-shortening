@@ -1,10 +1,53 @@
+import { useEffect, useRef, useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-
+import { Service } from "./service/service";
+import MobileMenu from "./components/MobileMenu";
 function App() {
+  const service = new Service();
+  const [url, setUrl] = useState("");
+  const [error, setError] = useState(false);
+  const [urls, setUrls] = useState([...service.readAllURL()]);
+  const [menu, setMenu] = useState(false);
+  let menuRef = useRef();
+  const regex =
+    /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // validation
+    if (!regex.test(url)) return setError(true);
+    else setError(false);
+
+    // api call
+    service.getShortedURL(url).then((res) => {
+      service.saveOneInLocalStorage(res);
+      setUrls(service.readAllURL());
+    });
+  }
+
+  function handleCopy(e){
+    e.currentTarget.classList.add("btn-primary-active");
+    e.currentTarget.innerHTML = "Copied!";
+    navigator.clipboard.writeText(e.currentTarget.value);
+  }
+
+  useEffect(() => {
+  let handler = (e) => {
+    if(menuRef.current && !menuRef.current.contains(e.target)){
+      setMenu(false)
+    }
+  }
+    document.addEventListener("mousedown", handler);
+  })
+  
   return (
     <>
-      <Header />
+      <Header setMenu={setMenu}/>
+    
+      {menu && <MobileMenu active={true} rf={menuRef}/>}
+      
       <main className="overflow-y-auto">
         <div className="d-flex flex-column flex-md-row-reverse  align-items-center ">
           <img
@@ -23,11 +66,43 @@ function App() {
             <button className="btn-primary btn-rounded">Get Started</button>
           </div>
         </div>
-        <form 
-        className="input-form d-flex flex-column justify-content-center align-items-center flex-md-row p-3 gap-3 ps-md-5 pe-md-5">
-          <input className="w-100 h-50" type="text" placeholder="Shorten a link here..." />
-          <button className="btn-primary h-50 w-100">Shorten it!</button>
+        <form
+          onSubmit={handleSubmit}
+          className="input-form d-flex flex-column justify-content-center align-items-center flex-md-row p-3 gap-3 ps-md-5 pe-md-5"
+        >
+          <div className="d-flex flex-column w-100 h-50 position-relative">
+            <input
+              className={`w-100 h-100 ${error && "input-error"}`}
+              name="url"
+              type="text"
+              placeholder="Shorten a link here..."
+              onChange={(e) => setUrl(e.target.value)}
+            />
+            {error && (
+              <span className="text-error position-absolute">
+                Please add a link
+              </span>
+            )}
+          </div>
+          <button className="btn-primary h-50 w-100" type="submit">
+            Shorten it!
+          </button>
         </form>
+
+        {urls && (
+          <div className="urls w-100 flex flex-column align-items-center mt-5">
+            {urls.map((url) => {
+              return (
+                <div key={url.id}>
+                  <a href={url.mainUrl} className="text-truncate white">{url.mainUrl}</a>
+                  <hr />
+                  <a href={url.link} className="text-primary">{url.link}</a>
+                  <button className="btn-primary" value={url.link} onClick={handleCopy}>Copy</button>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         <div className="advance d-flex flex-column  gap-2 mt-5 ">
           <h2 className="text-center fs-1 fw-bold">Advanced Statistics</h2>
